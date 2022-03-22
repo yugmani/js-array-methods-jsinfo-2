@@ -87,6 +87,33 @@ console.log(shuffle([1, 2, 3]));
 
 // console.log(shuffleArray([123]));
 
+//Get average age
+// ******************************************************
+
+// Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
+
+let johny = { name: 'John', age: 25 };
+let peter = { name: 'Pete', age: 30 };
+let marry = { name: 'Mary', age: 29 };
+
+let arrayUsers = [johny, peter, marry];
+
+const getAverageAge = (arr) => {
+  let total = arr
+    .map((item) => item.age)
+    .reduce((prev, current) => prev + current);
+  return total / arr.length;
+};
+
+console.log(getAverageAge(arrayUsers)); //28
+
+// suggested alternative
+function calculateAverage(arr) {
+  return arr.reduce((prev, current) => prev + current.age, 0) / arr.length;
+}
+
+console.log(calculateAverage(arrayUsers)); //28
+
 // Reverse the letters of each word in a group of words.
 // [codewars.com]
 // ******************************************************
