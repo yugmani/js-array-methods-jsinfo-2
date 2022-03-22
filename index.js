@@ -52,20 +52,55 @@ const sortByAge = (arr) => {
 };
 
 console.log(sortByAge(users));
+// [{ name: 'John', age: 25 }, { name: 'Mary', age: 28 }, { name: 'Pete', age: 30 }]
+
+// Shuffle an array
+// ******************************************************
+
+// Write the function shuffle(array) that shuffles (randomly reorders) elements of the array.
+
+// Multiple runs of shuffle may lead to different orders of elements. For instance:
+
+const shuffle = (arr) => {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    let random = Math.floor(Math.random() * arr.length);
+
+    if (newArr.includes(arr[random])) {
+      i = i - 1;
+      continue;
+      // random = Math.floor(Math.random() * arr.length);
+    }
+
+    newArr.push(arr[random]);
+  }
+  return newArr;
+};
+
+console.log(shuffle([1, 2, 3]));
+// [2, 1, 3], [1, 2, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]
+
+// suggested to read description
+// const shuffleArray = (arr)=>{
+//   return arr.sort(()=> Math.random() - 0.5);
+// }
+
+// console.log(shuffleArray([123]));
 
 // Reverse the letters of each word in a group of words.
+// [codewars.com]
 // ******************************************************
 
 // Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
 function reverseWords(str) {
   // Go for it
- return str
-          .split(" ")
-          .map(item=>item.split("").reverse().join("")) 
-          .join(" ")     
+  return str
+    .split(' ')
+    .map((item) => item.split('').reverse().join(''))
+    .join(' ');
 }
 
-console.log(reverseWords('The quick brown fox jumps over the lazy dog.'));  // ehT kciuq nworb xof spmuj revo eht yzal .god
-console.log(reverseWords('apple'));   //elppa
+console.log(reverseWords('The quick brown fox jumps over the lazy dog.')); // ehT kciuq nworb xof spmuj revo eht yzal .god
+console.log(reverseWords('apple')); //elppa
 console.log(reverseWords('a b c d')); //a b c d
-console.log(reverseWords('double  spaced  words'));   // elbuod decaps sdrow
+console.log(reverseWords('double  spaced  words')); // elbuod decaps sdrow
