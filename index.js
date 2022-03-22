@@ -53,7 +53,10 @@ const sortByAge = (arr) => {
 
 console.log(sortByAge(users));
 
+// Reverse the letters of each word in a group of words.
+// ******************************************************
 
+// Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
 function reverseWords(str) {
   // Go for it
  return str
