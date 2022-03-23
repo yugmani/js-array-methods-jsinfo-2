@@ -145,6 +145,54 @@ let strings = [
 
 console.log(unique(strings)); // ["Hare", "Krishna", ":-O"]
 
+// Create keyed object from array
+// ******************************************************
+
+// Let’s say we received an array of users in the form {id:..., name:..., age:... }.
+
+// Create a function groupById(arr) that creates an object from it, with id as the key, and array items as values.
+
+let usersId = [
+  { id: 'john', name: 'John Smith', age: 20 },
+  { id: 'ann', name: 'Ann Smith', age: 24 },
+  { id: 'pete', name: 'Pete Peterson', age: 31 },
+];
+
+const groupById = (arr) => {
+  const newObj = {};
+  usersId.forEach((obj) => {
+    newObj[obj.id] = obj;
+    // { id: obj.id, name: obj.name, age: obj.age };
+  });
+  return newObj;
+};
+
+let usersById = groupById(usersId);
+console.log("usersById: ", usersById);
+/*
+usersById = {
+  john: {id: 'john', name: "John Smith", age: 20},
+  ann: {id: 'ann', name: "Ann Smith", age: 24},
+  pete: {id: 'pete', name: "Pete Peterson", age: 31},
+}
+*/
+
+// Such function is really handy when working with server data.
+
+// In this task we assume that id is unique. There may be no two array items with the same id.
+
+// Please use array .reduce method in the solution.
+// Alternative solution using .reduce method
+function groupsById(array) {
+  return array.reduce((obj, value) => {
+    obj[value.id] = value;
+    return obj;
+  }, {});
+}
+
+// let userById = groupsById(usersId);
+// console.log(userById);
+
 // Reverse the letters of each word in a group of words.
 // [codewars.com]
 // ******************************************************
